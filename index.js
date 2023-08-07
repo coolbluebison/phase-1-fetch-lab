@@ -1,7 +1,17 @@
+
+// make a fetch request to GOT API
+// convert the response to JSON
+// then call renderBooks function on JSON file
+
+
+
 function fetchBooks() {
   // To pass the tests, don't forget to return your fetch!
-  
+  return fetch("https://anapioficeandfire.com/api/books")
+  .then((r) => r.json())
+  .then((data) => renderBooks(data))
 }
+
 
 function renderBooks(books) {
   const main = document.querySelector('main');
@@ -12,6 +22,9 @@ function renderBooks(books) {
   });
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks();
 });
+
+
